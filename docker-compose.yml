@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db:
+    image: k2works/my-rails-app-mysql:latest
+  web:
+    image: k2works/my-rails-app:latest
+    volumes:
+      - .:/usr/src/app
+      - ./container/web/config/database.yml:/usr/src/app/config/database.yml
+    depends_on:
+      - db
+  proxy:
+    image: k2works/my-rails-app-nginx:latest
+    volumes:
+      - ./container/proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./container/proxy/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - web

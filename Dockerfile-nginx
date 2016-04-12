@@ -1,0 +1,4 @@
+FROM nginx
+RUN apt-get update && apt-get install vim curl -y
+ADD ./container/proxy/nginx.conf /etc/nginx/nginx.conf
+ADD ./container/proxy/conf.d/default.conf /etc/nginx/conf.d/default.conf
