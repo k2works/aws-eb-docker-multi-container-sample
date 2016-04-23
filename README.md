@@ -81,13 +81,6 @@ $ cp ../Dockerrun.aws.json .
 ElasticBeanstalkアプリケーションを作成する
 ```
 $ eb init
-
-```
-作成したアプリケーションのステージング環境を作成する
-```
-$ eb create stg-env
-
-
 Select a default region
 1) us-east-1 : US East (N. Virginia)
 2) us-west-1 : US West (N. California)
